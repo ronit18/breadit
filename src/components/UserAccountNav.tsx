@@ -1,9 +1,12 @@
 'use client'
 import { User } from 'next-auth'
-import { DropdownMenu } from '@radix-ui/react-dropdown-menu'
 import React from 'react'
 import UserAvatar from './UserAvatar'
-import { DropdownMenuContent, DropdownMenuTrigger } from './ui/DropdownMenu'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from './ui/DropdownMenu'
 
 interface UserAccountNavProps {
   user: Pick<User, 'name' | 'image' | 'email'>
