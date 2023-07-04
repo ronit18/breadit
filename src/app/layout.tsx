@@ -25,6 +25,7 @@ export default function RootLayout({
       lang="en"
     >
       <body className="min-h-screen pt-12 bg-slate-50 antialiased">
+        {/* @ts-expect-error Async error of a server component */}
         <Navbar />
         <div className="container max-w-7xl mx-auto h-full pt-12">
           {children}
