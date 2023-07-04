@@ -5,8 +5,12 @@ import UserAvatar from './UserAvatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './ui/DropdownMenu'
+import Link from 'next/link'
+import { signOut } from 'next-auth/react'
 
 interface UserAccountNavProps {
   user: Pick<User, 'name' | 'image' | 'email'>
@@ -35,6 +39,33 @@ const UserAccountNav: React.FC<UserAccountNavProps> = ({ user }) => {
             )}
           </div>
         </div>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem asChild>
+          <Link href="/">Feed</Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <Link href="/r/settings">Create Community</Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuItem asChild>
+          <Link href="/settings">Settings</Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem
+          className="cursor-pointer"
+          onSelect={(e) => {
+            e.preventDefault()
+            signOut({
+              callbackUrl: `${window.location.origin}/sign-in`,
+            })
+          }}
+        >
+          Sign Out
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
