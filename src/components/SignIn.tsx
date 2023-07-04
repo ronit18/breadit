@@ -15,6 +15,7 @@ const SignIn = () => {
         </p>
 
         <UserAuthForm />
+        <br />
         <p className="px-8 text-center text-sm text-zinc-700">
           New to Breadit{' '}
           <Link
